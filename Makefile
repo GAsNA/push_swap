@@ -6,7 +6,7 @@
 #    By: rleseur <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 14:34:54 by rleseur           #+#    #+#              #
-#    Updated: 2022/02/02 14:40:04 by rleseur          ###   ########.fr        #
+#    Updated: 2022/02/08 16:45:27 by rleseur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,10 +59,14 @@ LIBFT_PATH		=	./librairies/libft/
 LIBFT			=	${LIBFT_PATH}libft.a
 
 SRCS_PATH		=	./srcs/
-SRCS			=	${SRCS_PATH}check_args.c	\
-					${SRCS_PATH}operations.c	\
-					${SRCS_PATH}utils.c			\
-					${SRCS_PATH}free.c			\
+SRCS			=	${SRCS_PATH}main.c				\
+					${SRCS_PATH}check_args.c		\
+					${SRCS_PATH}algorithm_three.c	\
+					${SRCS_PATH}instructions.c		\
+					${SRCS_PATH}operations.c		\
+					${SRCS_PATH}create_list.c		\
+					${SRCS_PATH}utils.c				\
+					${SRCS_PATH}free.c				\
 					${SRCS_PATH}errors.c
 
 OBJS_PATH		=	./objs/
@@ -86,7 +90,7 @@ ${NAME}:		${OBJS} ${LIBFT}
 				${CREATED_BIN}
 
 .c.o:
-				${CC} -c ${CFLAGS} -I${HEADER} $^ -o $@
+				${CC} -c ${CFLAGS} -I${HEADERS_PATH} $^ -o $@
 
 ${LIBFT}:
 				make -C ${LIBFT_PATH}

@@ -6,71 +6,76 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:36:17 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/02 15:24:12 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/02/07 15:05:18 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "push_swap.h"
 
-void	swap(int *list)
+void	swap(t_stack	**list)
 {
-	int	tmp;
+	t_stack	*tmp;
 
-	if (len_tab_int(list) <= 1)
+	if (len_stack(*list) <= 1)
 		return ;
-	tmp = list[0];
-	list[0] = list[1];
-	list[1] = tmp;
+	tmp = *list;
+	*list = (*list)->next;
+	tmp->next = (*list)->next;
+	(*list)->next = tmp;
 }
 
-int	*push(int *list_d, int *list_s)
+void	push(t_stack	**list_d, t_stack	**list_s)
 {
-	int	i;
-	int	*new_list;
+	t_stack	*tmp;
+	t_stack	*elem;
 
-	if (len_tab_int(list_s) == 0)
-		return (0);
-	new_list = malloc((len_tab_int(list_d) + 1) * sizeof(int));
-	if (!new_list)
-		exit(0);
-	new_list[0] = list_s[0];
-	i = -1;
-	while (list_d[++i])
-		new_list[i + 1] = list_d[i];
-	free(list_d);
-	list_d = duplicate_tab_int(new_list);
-	free(new_list);
-	return (list_d);
+	if (len_stack(*list_s) == 0)
+		return ;
+	if (*list_d)
+	{
+		elem = create_elem_list((*list_s)->nb);
+		if (!elem)
+			return ;
+		elem->next = *list_d;
+		*list_d = elem;
+	}
+	else
+	{
+		*list_d = create_elem_list((*list_s)->nb);
+		if (!*list_d)
+			return ;
+	}
+	tmp = (*list_s)->next;
+	free(*list_s);
+	*list_s = tmp;
 }
 
-int	main()
+void	rotate(t_stack	**list)
 {
-	int	i;
-	int	*tab_d;
-	int	*tab_s;
+	t_stack	*newlist;
+	t_stack	*last;
 
-	tab_d = malloc(3 * sizeof(int));
-	tab_d[0] = 5;
-	tab_d[1] = 4;
-	tab_d[2] = 7;
+	if (len_stack(*list) <= 1)
+		return ;
+	last = *list;
+	*list = (*list)->next;
+	last->next = 0;
+	newlist = *list;
+	while ((newlist->next))
+		newlist = newlist->next;
+	newlist->next = last;
+}
 
-	tab_s = malloc(sizeof(int));
-	tab_s[0] = 9;
+void	r_rotate(t_stack	**list)
+{
+	t_stack	*newlist;
 
-//	tab_d = push(tab_d, tab_s);
-	i = 0;
-	while (tab_d[i])
-	{
-		ft_putnbr_fd(tab_d[i], 1);
-		i++;
-	}
-	ft_putchar_fd('\n', 1);
-	i = 0;
-	while (tab_s[i])
-	{
-		ft_putnbr_fd(tab_s[i], 1);
-		i++;
-	}
-	free(tab_d);
-	free(tab_s);
+	if (len_stack(*list) <= 1)
+		return ;
+	newlist = *list;
+	while (newlist->next->next)
+		newlist = newlist->next;
+	newlist->next->next = *list;
+	*list = newlist->next;
+	newlist->next = 0;
 }

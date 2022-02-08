@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   algorithm_three.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 13:40:09 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/07 13:07:12 by rleseur          ###   ########.fr       */
+/*   Created: 2022/02/08 15:51:03 by rleseur           #+#    #+#             */
+/*   Updated: 2022/02/08 16:46:51 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	len_stack(t_stack *stack)
+void	sorting_three(t_stack **a, t_stack **b)
 {
-	int	len;
-
-	len = 0;
-	while (stack)
+	if ((*a)->nb > (*a)->next->nb)
 	{
-		stack = stack->next;
-		len++;
+		if ((*a)->nb < (*a)->next->next->nb)
+			sx(a, b, A);
+		else if ((*a)->next->nb < (*a)->next->next->nb)
+			rx(a, b, A);
+		else
+		{
+			sx(a, b, A);
+			rrx(a, b, A);
+		}
 	}
-	return (len);
+	else
+	{
+		if ((*a)->nb > (*a)->next->next->nb)
+			rrx(a, b, A);
+		else
+		{
+			sx(a, b, A);
+			rx(a, b, A);
+		}
+	}
 }

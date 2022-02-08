@@ -6,11 +6,22 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:11:58 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/01 16:13:48 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/02/08 15:12:13 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "push_swap.h"
+
+static int	has_numbers(char *num)
+{
+	int	i;
+
+	i = -1;
+	while (num[++i])
+		if (ft_isdigit(num[i]))
+			return (1);
+	return (0);
+}
 
 static int	all_numbers(char **nums)
 {
@@ -23,9 +34,14 @@ static int	all_numbers(char **nums)
 		j = -1;
 		while (nums[i][++j])
 		{
-			if (!ft_isdigit(nums[i][j]) && nums[i][j] != '-')
+			if (!ft_isdigit(nums[i][j]) && nums[i][j] != '-'
+				&& nums[i][j] != ' ' && nums[i][j] != '+')
+				return (0);
+			if (j > 0 && nums[i][j] == '-')
 				return (0);
 		}
+		if (!has_numbers(nums[i]))
+			return (0);
 	}
 	return (1);
 }
@@ -54,7 +70,7 @@ static int	no_duplicates(char **nums)
 		j = i;
 		while (nums[++j])
 		{
-			if (ft_strncmp(nums[i], nums[j], 100) == 0)
+			if (ft_strncmp(nums[i], nums[j], ft_strlen(nums[i]) + ft_strlen(nums[j])) == 0)
 				return (0);
 		}
 	}
