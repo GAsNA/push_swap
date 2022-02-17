@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:08:05 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/08 16:42:50 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/02/10 13:04:01 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # define R 'R'
 
 typedef struct s_stack	t_stack;
-typedef struct t_inst	t_inst;
 
 struct s_stack
 {
@@ -34,8 +33,17 @@ struct s_stack
 /* check_args.c */
 int		are_valid_args(char **args);
 
+/* get_args.c */
+char	**get_args(char **av);
+
 /* algorithm_three.c */
 void	sorting_three(t_stack **a, t_stack **b);
+
+/* algorithm_five.c */
+void	sorting_five(t_stack **a, t_stack **b);
+
+/* algorithm_infinity.c */
+void	sorting_infinity(t_stack **a, t_stack **b);
 
 /* instructions.c */
 void	sx(t_stack **a, t_stack **b, int move);
@@ -54,7 +62,9 @@ t_stack	*create_elem_list(int nb);
 t_stack	*tab_char_to_list(char **av);
 
 /* utils.c */
+void	aff_stack(t_stack *stack);
 int		len_stack(t_stack *tab);
+t_stack	*ft_list_last(t_stack *stack);
 
 /* free.c */
 void	free_d_tab(char **tab);

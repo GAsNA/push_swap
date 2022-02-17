@@ -1,45 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm_three.c                                  :+:      :+:    :+:   */
+/*   algorithm_five.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 15:51:03 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/09 10:05:44 by rleseur          ###   ########.fr       */
+/*   Created: 2022/02/09 10:06:45 by rleseur           #+#    #+#             */
+/*   Updated: 2022/02/09 14:29:22 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sorting_three(t_stack **a, t_stack **b)
+void	sorting_five(t_stack **a, t_stack **b)
 {
-	if (!(*a)->next)
-		return ;
-	if ((*a)->nb > (*a)->next->nb)
+	t_stack	*tmp;
+	int		n;
+	int		min;
+
+	n = -1;
+	while (++n < 2)
 	{
-		if (!(*a)->next->next)
-			sx(a, b, A);
-		else if ((*a)->nb < (*a)->next->next->nb)
-			sx(a, b, A);
-		else if ((*a)->next->nb < (*a)->next->next->nb)
-			rx(a, b, A);
-		else
+		min = (*a)->nb;
+		tmp = (*a)->next;
+		while (tmp)
 		{
-			sx(a, b, A);
-			rrx(a, b, A);
+			if (min > tmp->nb)
+				min = tmp->nb;
+			tmp = tmp->next;
 		}
-	}
-	else
-	{
-		if (!(*a)->next->next)
-			return ;
-		if ((*a)->nb > (*a)->next->next->nb)
-			rrx(a, b, A);
-		else
-		{
-			sx(a, b, A);
+		while ((*a)->nb != min)
 			rx(a, b, A);
-		}
+		px(a, b, B);
 	}
+	sorting_three(a, b);
+	px(a, b, A);
+	px(a, b, A);
 }
