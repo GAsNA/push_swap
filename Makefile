@@ -6,7 +6,7 @@
 #    By: rleseur <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 14:34:54 by rleseur           #+#    #+#              #
-#    Updated: 2022/02/10 11:07:25 by rleseur          ###   ########.fr        #
+#    Updated: 2022/02/28 10:08:32 by rleseur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ SRCS			=	${SRCS_PATH}main.c				\
 					${SRCS_PATH}algorithm_three.c	\
 					${SRCS_PATH}algorithm_five.c	\
 					${SRCS_PATH}algorithm_infinity.c\
+					${SRCS_PATH}LIS.c				\
 					${SRCS_PATH}instructions.c		\
 					${SRCS_PATH}operations.c		\
 					${SRCS_PATH}create_list.c		\

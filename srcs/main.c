@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:07:00 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/11 15:23:44 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/02/28 17:48:52 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	main(int ac, char **av)
 			sorting_five(&a, &b);
 		else
 			sorting_infinity(&a, &b);
-	//	aff_stack(a);
-		//aff_stack(b);
+//		aff_stack(a);
+//		aff_stack(b);
 		free_stack(a);
 	}
 	free_d_tab(args_char);

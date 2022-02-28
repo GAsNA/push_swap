@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:11:58 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/08 15:12:13 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/02/28 08:52:14 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ static int	no_duplicates(char **nums)
 		j = i;
 		while (nums[++j])
 		{
-			if (ft_strncmp(nums[i], nums[j], ft_strlen(nums[i]) + ft_strlen(nums[j])) == 0)
+			if (ft_strncmp(nums[i], nums[j],
+					ft_strlen(nums[i]) + ft_strlen(nums[j])) == 0)
 				return (0);
 		}
 	}

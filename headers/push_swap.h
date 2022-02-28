@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:08:05 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/10 13:04:01 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/02/28 12:43:08 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ void	sorting_five(t_stack **a, t_stack **b);
 /* algorithm_infinity.c */
 void	sorting_infinity(t_stack **a, t_stack **b);
 
+/* LIS.c */
+int		*find_lis(t_stack **a, int *lis_length);
+
 /* instructions.c */
 void	sx(t_stack **a, t_stack **b, int move);
 void	px(t_stack **a, t_stack **b, int move);
@@ -65,6 +68,7 @@ t_stack	*tab_char_to_list(char **av);
 void	aff_stack(t_stack *stack);
 int		len_stack(t_stack *tab);
 t_stack	*ft_list_last(t_stack *stack);
+t_stack	*ft_stackdup(t_stack *stack);
 
 /* free.c */
 void	free_d_tab(char **tab);
