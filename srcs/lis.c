@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 09:51:58 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/28 11:00:32 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/01 10:25:23 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,16 @@ static int	search_replace(int *lis, int left, int right, int key)
 	while (left <= right)
 	{
 		if (lis[mid] > key)
-		{
 			right = mid - 1;
-		}
 		else if (lis[mid] == key)
-		{
 			return (mid);
-		}
 		else if (mid + 1 <= right && lis[mid + 1] >= key)
 		{
 			lis[mid + 1] = key;
 			return (mid + 1);
 		}
 		else
-		{
 			left = mid + 1;
-		}
 		mid = (left + right) / 2;
 	}
 	if (mid == left)
@@ -49,57 +43,13 @@ static int	search_replace(int *lis, int left, int right, int key)
 	return (mid + 1);
 }
 
-static int	*stack_to_tab(t_stack **a)
+static int	*get_answer(int *lis_length, int *b, int *index, int size)
 {
-	t_stack	*tmp;
-	int		*tab;
-	int		i;
-
-	tab = malloc(len_stack(*a) * sizeof(int));
-	if (!tab)
-		return (0);
-	tmp = *a;
-	i = 0;
-	while (tmp)
-	{
-		tab[i] = tmp->nb;
-		i++;
-		tmp = tmp->next;
-	}
-	return (tab);
-}
-
-int	*find_lis(t_stack **a, int *lis_length)
-{
-	int	i;
-	int	tmp;
-	int	size;
 	int	*answer;
-	int	*b;
-	int	*lis;
-	int	*index;
+	int	tmp;
+	int	i;
 
-	b = stack_to_tab(a);
-	size = len_stack(*a);
-	*lis_length = -1;
-	lis = malloc(len_stack(*a) * sizeof(int));
-	if (!lis)
-		return (0);
-	lis[0] = b[0];
-	i = 0;
-	while (++i < size)
-		lis[i] = INT_INF;
-	index = malloc(len_stack(*a) * sizeof(int));
-	if (!lis)
-		return (0);
-	i = 0;
-	while (++i < size)
-	{
-		index[i] = search_replace(lis, 0, i, b[i]);
-		if (*lis_length < index[i])
-			*lis_length = index[i];
-	}
-	answer = (int *)malloc((*lis_length + 1) * sizeof(int));
+	answer = malloc((*lis_length + 1) * sizeof(int));
 	if (!answer)
 		return (0);
 	i = size;
@@ -113,5 +63,44 @@ int	*find_lis(t_stack **a, int *lis_length)
 		}
 	}
 	*lis_length += 1;
+	free(b);
+	free(index);
 	return (answer);
+}
+
+static void	init(t_stack **a, int **b, int *lis_length, int **lis)
+{	
+	*b = stack_to_tab(a);
+	*lis_length = -1;
+	*lis = malloc(len_stack(*a) * sizeof(int));
+	if (!*lis)
+		return ;
+	*lis[0] = *b[0];
+}
+
+int	*find_lis(t_stack **a, int *lis_length)
+{
+	int	i;
+	int	size;
+	int	*b;
+	int	*lis;
+	int	*index;
+
+	init(a, &b, lis_length, &lis);
+	size = len_stack(*a);
+	i = 0;
+	while (++i < size)
+		lis[i] = INT_INF;
+	index = malloc(len_stack(*a) * sizeof(int));
+	if (!index)
+		return (0);
+	i = -1;
+	while (++i < size)
+	{
+		index[i] = search_replace(lis, 0, i, b[i]);
+		if (*lis_length < index[i])
+			*lis_length = index[i];
+	}
+	free(lis);
+	return (get_answer(lis_length, b, index, size));
 }

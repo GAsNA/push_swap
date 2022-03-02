@@ -6,7 +6,7 @@
 #    By: rleseur <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 14:34:54 by rleseur           #+#    #+#              #
-#    Updated: 2022/02/28 10:08:32 by rleseur          ###   ########.fr        #
+#    Updated: 2022/03/01 14:01:27 by rleseur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,18 +59,21 @@ LIBFT_PATH		=	./librairies/libft/
 LIBFT			=	${LIBFT_PATH}libft.a
 
 SRCS_PATH		=	./srcs/
-SRCS			=	${SRCS_PATH}main.c				\
-					${SRCS_PATH}get_args.c			\
-					${SRCS_PATH}check_args.c		\
-					${SRCS_PATH}algorithm_three.c	\
-					${SRCS_PATH}algorithm_five.c	\
-					${SRCS_PATH}algorithm_infinity.c\
-					${SRCS_PATH}LIS.c				\
-					${SRCS_PATH}instructions.c		\
-					${SRCS_PATH}operations.c		\
-					${SRCS_PATH}create_list.c		\
-					${SRCS_PATH}utils.c				\
-					${SRCS_PATH}free.c				\
+SRCS			=	${SRCS_PATH}main.c					\
+					${SRCS_PATH}get_args.c				\
+					${SRCS_PATH}check_args.c			\
+					${SRCS_PATH}algorithm_three.c		\
+					${SRCS_PATH}algorithm_five.c		\
+					${SRCS_PATH}algorithm_infinity.c	\
+					${SRCS_PATH}algorithm_infinity2.c	\
+					${SRCS_PATH}lis.c					\
+					${SRCS_PATH}rotate_to_min.c			\
+					${SRCS_PATH}make_mov.c				\
+					${SRCS_PATH}instructions.c			\
+					${SRCS_PATH}operations.c			\
+					${SRCS_PATH}create_list.c			\
+					${SRCS_PATH}utils.c					\
+					${SRCS_PATH}free.c					\
 					${SRCS_PATH}errors.c
 
 OBJS_PATH		=	./objs/

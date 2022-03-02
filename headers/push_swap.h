@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:08:05 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/28 12:43:08 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/01 14:03:31 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,21 @@ void	sorting_five(t_stack **a, t_stack **b);
 /* algorithm_infinity.c */
 void	sorting_infinity(t_stack **a, t_stack **b);
 
-/* LIS.c */
+/* algorithm_infinity2.c */
+void	push_none_lis_to_b(t_stack **a, t_stack **b, int lis_length,
+			int *lis);
+int		get_last_stack(t_stack *s);
+int		get_pos_max(t_stack *s);
+void	get_best_mov(int fin_mov[2], int mov[2], t_stack *a, t_stack *b);
+
+/* lis.c */
 int		*find_lis(t_stack **a, int *lis_length);
+
+/* rotate_to_min.c */
+void	rotate_to_min(t_stack **a, t_stack **b, int t);
+
+/* make_mov.c */
+void	make_mov(int find_mov[2], t_stack **a, t_stack **b);
 
 /* instructions.c */
 void	sx(t_stack **a, t_stack **b, int move);
@@ -69,6 +82,7 @@ void	aff_stack(t_stack *stack);
 int		len_stack(t_stack *tab);
 t_stack	*ft_list_last(t_stack *stack);
 t_stack	*ft_stackdup(t_stack *stack);
+int		*stack_to_tab(t_stack **a);
 
 /* free.c */
 void	free_d_tab(char **tab);

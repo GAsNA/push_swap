@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:40:09 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/28 12:49:17 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/01 09:38:12 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,24 @@ t_stack	*ft_stackdup(t_stack *stack)
 		stack = stack->next;
 	}
 	return (dup);
+}
+
+int	*stack_to_tab(t_stack **a)
+{
+	t_stack	*tmp;
+	int		*tab;
+	int		i;
+
+	tab = malloc(len_stack(*a) * sizeof(int));
+	if (!tab)
+		return (0);
+	tmp = *a;
+	i = 0;
+	while (tmp)
+	{
+		tab[i] = tmp->nb;
+		i++;
+		tmp = tmp->next;
+	}
+	return (tab);
 }
