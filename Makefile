@@ -6,7 +6,7 @@
 #    By: rleseur <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 14:34:54 by rleseur           #+#    #+#              #
-#    Updated: 2022/03/01 14:01:27 by rleseur          ###   ########.fr        #
+#    Updated: 2022/03/04 03:05:01 by rleseur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ SRCS_PATH		=	./srcs/
 SRCS			=	${SRCS_PATH}main.c					\
 					${SRCS_PATH}get_args.c				\
 					${SRCS_PATH}check_args.c			\
+					${SRCS_PATH}is_sort.c				\
 					${SRCS_PATH}algorithm_three.c		\
 					${SRCS_PATH}algorithm_five.c		\
 					${SRCS_PATH}algorithm_infinity.c	\

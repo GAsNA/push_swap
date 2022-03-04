@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:08:05 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/01 14:03:31 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/04 03:05:31 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int		are_valid_args(char **args);
 
 /* get_args.c */
 char	**get_args(char **av);
+
+/* is_sort.c */
+int		is_sort(t_stack **a);
 
 /* algorithm_three.c */
 void	sorting_three(t_stack **a, t_stack **b);

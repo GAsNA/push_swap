@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm_five.c                                   :+:      :+:    :+:   */
+/*   is_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 10:06:45 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/04 03:11:11 by rleseur          ###   ########.fr       */
+/*   Created: 2022/03/04 03:02:01 by rleseur           #+#    #+#             */
+/*   Updated: 2022/03/04 03:06:12 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sorting_five(t_stack **a, t_stack **b)
+int	is_sort(t_stack **a)
 {
 	t_stack	*tmp;
-	int		n;
-	int		min;
 
-	n = -1;
-	while (++n < 2)
+	tmp = (*a);
+	while (tmp->next)
 	{
-		min = (*a)->nb;
-		tmp = (*a)->next;
-		while (tmp)
-		{
-			if (min > tmp->nb)
-				min = tmp->nb;
-			tmp = tmp->next;
-		}
-		while ((*a)->nb != min)
-			rx(a, b, A);
-		px(a, b, B);
+		if (tmp->nb > tmp->next->nb)
+			return (0);
+		tmp = tmp->next;
 	}
-	if (!is_sort(a))
-		sorting_three(a, b);
-	px(a, b, A);
-	px(a, b, A);
+	return (1);
 }

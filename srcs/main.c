@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:07:00 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/02 10:53:32 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/04 04:16:29 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	conditions(int len, t_stack **a, t_stack **b)
 {
-	if (len > 1)
+	if (len > 1 && !is_sort(a))
 	{
 		if (len <= 3)
 			sorting_three(a, b);
@@ -41,8 +41,6 @@ int	main(int ac, char **av)
 		b = 0;
 		len = len_stack(a);
 		conditions(len, &a, &b);
-		aff_stack(a);
-		aff_stack(b);
 		free_stack(a);
 	}
 	free_d_tab(args_char);
