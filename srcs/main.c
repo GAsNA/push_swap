@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:07:00 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/04 04:16:29 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/04 05:31:55 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	main(int ac, char **av)
 	t_stack	*b;
 
 	args_char = get_args(av);
-	if (ac == 1 || !are_valid_args(args_char))
+	if (ac == 1)
+		return (0);
+	if (!are_valid_args(args_char))
 		error();
 	else
 	{

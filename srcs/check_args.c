@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:11:58 by rleseur           #+#    #+#             */
-/*   Updated: 2022/02/28 08:52:14 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/04 05:47:10 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	all_numbers(char **nums)
 			if (!ft_isdigit(nums[i][j]) && nums[i][j] != '-'
 				&& nums[i][j] != ' ' && nums[i][j] != '+')
 				return (0);
-			if (j > 0 && nums[i][j] == '-')
+			if (j > 0 && (nums[i][j] == '-' || nums[i][j] == '+'))
 				return (0);
 		}
 		if (!has_numbers(nums[i]))
@@ -73,6 +73,14 @@ static int	no_duplicates(char **nums)
 			if (ft_strncmp(nums[i], nums[j],
 					ft_strlen(nums[i]) + ft_strlen(nums[j])) == 0)
 				return (0);
+			if (nums[i][0] == '+')
+				if (ft_strncmp(&nums[i][1], nums[j],
+					ft_strlen(nums[i]) - 1 + ft_strlen(nums[j])) == 0)
+					return (0);
+			if (nums[j][0] == '+')
+				if (ft_strncmp(nums[i], &nums[j][1],
+					ft_strlen(nums[i]) + ft_strlen(nums[j]) - 1) == 0)
+					return (0);
 		}
 	}
 	return (1);
