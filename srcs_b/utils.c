@@ -6,21 +6,11 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:40:09 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/04 21:28:34 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/05 04:47:10 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-/*void	aff_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("%i | ", stack->nb);
-		stack = stack->next;
-	}
-	printf("\n");
-}*/
+#include "push_swap_b.h"
 
 int	len_stack(t_stack *stack)
 {
@@ -82,4 +72,18 @@ int	*stack_to_tab(t_stack **a)
 		tmp = tmp->next;
 	}
 	return (tab);
+}
+
+int	is_sort(t_stack **a)
+{
+	t_stack	*tmp;
+
+	tmp = (*a);
+	while (tmp->next)
+	{
+		if (tmp->nb > tmp->next->nb)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }
