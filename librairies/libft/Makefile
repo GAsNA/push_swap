@@ -6,7 +6,7 @@
 #    By: rleseur <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 13:54:15 by rleseur           #+#    #+#              #
-#    Updated: 2021/11/29 12:36:20 by rleseur          ###   ########.fr        #
+#    Updated: 2022/03/05 03:36:29 by rleseur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS =			ft_atoi.c		\
 				ft_strlen.c		\
 				ft_strmapi.c	\
 				ft_strncmp.c	\
+				ft_strcmp.c		\
 				ft_strnstr.c	\
 				ft_strrchr.c	\
 				ft_strtrim.c	\

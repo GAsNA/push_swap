@@ -6,7 +6,7 @@
 #    By: rleseur <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 14:34:54 by rleseur           #+#    #+#              #
-#    Updated: 2022/03/05 03:45:23 by rleseur          ###   ########.fr        #
+#    Updated: 2022/03/08 15:01:28 by rleseur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,38 +60,40 @@ LIBFT_PATH		=	./librairies/libft/
 LIBFT			=	${LIBFT_PATH}libft.a
 
 SRCS_PATH		=	./srcs/
-SRCS			=	${SRCS_PATH}main.c					\
-					${SRCS_PATH}get_args.c				\
-					${SRCS_PATH}check_args.c			\
-					${SRCS_PATH}is_sort.c				\
-					${SRCS_PATH}algorithm_three.c		\
-					${SRCS_PATH}algorithm_five.c		\
-					${SRCS_PATH}algorithm_infinity.c	\
-					${SRCS_PATH}algorithm_infinity2.c	\
-					${SRCS_PATH}lis.c					\
-					${SRCS_PATH}rotate_to_min.c			\
-					${SRCS_PATH}make_mov.c				\
-					${SRCS_PATH}instructions.c			\
-					${SRCS_PATH}operations.c			\
-					${SRCS_PATH}create_list.c			\
-					${SRCS_PATH}utils.c					\
-					${SRCS_PATH}free.c					\
-					${SRCS_PATH}errors.c
+OBJS_PATH		=	./objs/
+FILES			=	main.c					\
+					get_args.c				\
+					check_args.c			\
+					is_sort.c				\
+					algorithm_three.c		\
+					algorithm_five.c		\
+					algorithm_infinity.c	\
+					algorithm_infinity2.c	\
+					lis.c					\
+					rotate_to_min.c			\
+					make_mov.c				\
+					instructions.c			\
+					operations.c			\
+					create_list.c			\
+					utils.c					\
+					free.c					\
+					errors.c
+SRCS			=	${addprefix ${SRCS_PATH}, ${FILES}}
+OBJS			=	${addprefix ${OBJS_PATH}, ${FILES:.c=.o}}
 
 SRCS_B_PATH		=	./srcs_b/
-SRCS_B			=	${SRCS_B_PATH}main.c		\
-					${SRCS_B_PATH}check_args.c	\
-					${SRCS_B_PATH}actions.c		\
-					${SRCS_B_PATH}operations.c	\
-					${SRCS_B_PATH}write.c		\
-					${SRCS_B_PATH}get_args.c	\
-					${SRCS_B_PATH}create_list.c	\
-					${SRCS_B_PATH}utils.c		\
-					${SRCS_B_PATH}free.c
-
-OBJS			=	${SRCS:.c=.o}
-
-OBJS_B			=	${SRCS_B:.c=.o}
+OBJS_B_PATH		=	./objs_b/
+FILES_B			=	main.c			\
+					check_args.c	\
+					actions.c		\
+					operations.c	\
+					write.c			\
+					get_args.c		\
+					create_list.c	\
+					utils.c			\
+					free.c
+SRCS_B			=	${addprefix ${SRCS_B_PATH}, ${FILES_B}}
+OBJS_B			=	${addprefix ${OBJS_B_PATH}, ${FILES_B:.c=.o}}
 
 HEADERS_PATH	=	./headers/
 HEADER			=	${HEADERS_PATH}push_swap.h
@@ -118,7 +120,12 @@ ${NAME_B}:		${OBJS_B} ${LIBFT}
 				${CC} ${CFLAGS} ${OBJS_B} ${LIBFT} -o ${NAME_B}
 				${CREATED_BIN_B}
 
-.c.o:
+${OBJS_PATH}%.o:	${SRCS_PATH}%.c
+				mkdir -p ${dir $@}
+				${CC} -c ${CFLAGS} -I${HEADERS_PATH} $^ -o $@
+
+${OBJS_B_PATH}%.o:	${SRCS_B_PATH}%.c
+				mkdir -p ${dir $@}
 				${CC} -c ${CFLAGS} -I${HEADERS_PATH} $^ -o $@
 
 ${LIBFT}:
@@ -127,8 +134,8 @@ ${LIBFT}:
 
 clean:
 				make -C ${LIBFT_PATH} clean
-				${RM} ${OBJS}
-				${RM} ${OBJS_B}
+				${RM} ${OBJS_PATH}
+				${RM} ${OBJS_B_PATH}
 				${DELETED_OBJS}
 
 fclean:			clean
