@@ -6,7 +6,7 @@
 #    By: rleseur <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 13:54:15 by rleseur           #+#    #+#              #
-#    Updated: 2022/03/05 03:36:29 by rleseur          ###   ########.fr        #
+#    Updated: 2022/03/09 09:07:59 by rleseur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SRCS =			ft_atoi.c		\
 				ft_strtrim.c	\
 				ft_substr.c		\
 				ft_tolower.c	\
-				ft_toupper.c
+				ft_toupper.c	\
+				get_next_line.c
 
 SRCS_BONUS =	ft_lstnew.c			\
 				ft_lstadd_front.c	\

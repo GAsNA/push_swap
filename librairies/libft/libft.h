@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:23:20 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/05 03:36:08 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/09 09:44:23 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
+char			*get_next_line(int fd);
 
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);

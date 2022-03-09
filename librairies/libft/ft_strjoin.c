@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:21:31 by rleseur           #+#    #+#             */
-/*   Updated: 2021/11/24 12:23:10 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/09 10:23:27 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[++i])
 		str[len_s1 + i] = s2[i];
 	str[len_s1 + len_s2] = '\0';
+	free((char *)s1);
 	return (str);
 }

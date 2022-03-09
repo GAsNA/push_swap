@@ -6,7 +6,7 @@
 /*   By: rleseur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 02:50:50 by rleseur           #+#    #+#             */
-/*   Updated: 2022/03/05 05:21:14 by rleseur          ###   ########.fr       */
+/*   Updated: 2022/03/09 10:17:16 by rleseur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	d_r_rotate(t_stack **a, t_stack **b)
 	r_rotate(b);
 }
 
-static int	make_mov(t_stack **a, t_stack **b, char str[SIZE])
+static int	make_mov(t_stack **a, t_stack **b, char *str)
 {
 	if (ft_strcmp(str, "sa\n") == 0)
 		swap(a);
@@ -63,17 +63,16 @@ static int	make_mov(t_stack **a, t_stack **b, char str[SIZE])
 
 void	actions(t_stack **a, t_stack **b)
 {
-	char	str[SIZE];
-	int		n;
+	char	*str;
 
-	ft_memset(str, 0, SIZE);
 	while (1)
 	{
-		n = read(STDIN_FILENO, str, SIZE);
-		if (n == 0)
+		str = get_next_line(STDIN_FILENO);
+		if (!str)
 			break ;
 		if (!make_mov(a, b, str))
 			return ;
+		free(str);
 	}
 	if (is_sort(a) && len_stack(*b) == 0)
 		ok();

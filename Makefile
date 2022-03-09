@@ -6,7 +6,7 @@
 #    By: rleseur <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 14:34:54 by rleseur           #+#    #+#              #
-#    Updated: 2022/03/08 15:01:28 by rleseur          ###   ########.fr        #
+#    Updated: 2022/03/09 09:08:49 by rleseur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ _EMOJI			=	/bin/echo -e "${_GRAS}${_VIOLET}$1${_FIN}\n"
 CREATED_BIN		=	@$(call _VALID,"Binary created!")
 CREATED_BIN_B	=	@${call _VALID,"Binary bonus created!"}
 CREATED_LIBFT	=	@$(call _VALID,"Libft library created!")
+CREATED_GNL		=	@$(call _VALID,"GNL library created!")
 DELETED_OBJS	=	@$(call _VALID,"Objs deleted!")
 DELETED_BIN		=	@$(call _VALID,"Binary deleted!")
 
